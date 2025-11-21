@@ -19,7 +19,7 @@ const Logo: React.FC = () => (
 
 // --- TYPES & CONTENT ---
 type Language = 'es' | 'en';
-type View = 'main' | 'legal' | 'sales';
+export type View = 'main' | 'legal' | 'sales' | 'ai-resources';
 
 interface LegalPageContent {
     title: string;
@@ -385,12 +385,13 @@ const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children })
                 {view === 'main' && children}
                 {view === 'legal' && <LegalNoticePage />}
                 {view === 'sales' && <SalesPolicyPage />}
+                {view === 'ai-resources' && <AIResourcesPage />}
             </div>
         </LanguageContext.Provider>
     );
 };
 
-const useLanguage = () => {
+export const useLanguage = () => {
     const context = useContext(LanguageContext);
     if (!context) {
         throw new Error('useLanguage must be used within a LanguageProvider');
@@ -414,6 +415,8 @@ const Section: React.FC<{ id: string; className?: string; children: React.ReactN
 );
 
 // --- UI COMPONENTS ---
+
+
 
 const LanguageSwitcher: React.FC = () => {
     const { language, setLanguage } = useLanguage();
@@ -727,10 +730,34 @@ const Footer: React.FC = () => {
     return (
         <footer className="bg-nude/30 py-8 px-6 md:px-12">
             <div className="max-w-7xl mx-auto text-center font-sans text-text-light">
+                {/* Phone Contact */}
+                <div className="mb-6">
+                    <a
+                        href="tel:+15055375593"
+                        className="inline-flex items-center gap-2 text-gold-soft hover:text-text-dark transition-colors duration-300 text-lg font-medium group"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                        </svg>
+                        <span>+1 505 537 5593</span>
+                    </a>
+                </div>
+
+                {/* Navigation Links */}
                 <div className="flex justify-center space-x-6 mb-4">
                     <button onClick={() => setView('legal')} className="hover:text-gold-soft transition-colors">{content.footer.legalNotice}</button>
                     <button onClick={() => setView('sales')} className="hover:text-gold-soft transition-colors">{content.footer.salesPolicy}</button>
+                    <button onClick={() => setView('ai-resources')} className="hover:text-gold-soft transition-colors">Recursos IA</button>
                 </div>
+
+                {/* Copyright */}
                 <p>{content.footer.copy}</p>
             </div>
         </footer>
@@ -780,6 +807,8 @@ const SalesPolicyPage: React.FC = () => {
     return <LegalPageLayout pageContent={content.salesPolicyPage} />;
 };
 
+
+import AIResourcesPage from './AIResources';
 
 // --- MAIN APP ---
 export default function App() {

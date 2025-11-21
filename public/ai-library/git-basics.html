@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Básica de Git y GitHub</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #B0926A;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #B0926A;
+            margin-top: 30px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guía Básica de Git y GitHub</h1>
+    
+    <p>Bienvenido a tu primera página de recursos de IA y Programación. Aquí tienes los comandos básicos para empezar.</p>
+
+    <div class="note">
+        <strong>Nota:</strong> Esta página está alojada localmente en <code>public/ai-library/git-basics.html</code>.
+    </div>
+
+    <h2>1. Configuración Inicial</h2>
+    <pre>
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"</pre>
+
+    <h2>2. Iniciar un Repositorio</h2>
+    <p>Para empezar a rastrear un proyecto:</p>
+    <pre>git init</pre>
+
+    <h2>3. Guardar Cambios</h2>
+    <p>El ciclo básico de trabajo es:</p>
+    <ol>
+        <li>Verificar estado: <code>git status</code></li>
+        <li>Añadir archivos: <code>git add .</code></li>
+        <li>Guardar versión: <code>git commit -m "Descripción del cambio"</code></li>
+    </ol>
+
+    <h2>4. Subir a GitHub</h2>
+    <pre>git push origin main</pre>
+
+    <h2>Próximos Pasos</h2>
+    <p>Puedes crear más páginas como esta en la carpeta <code>public/ai-library</code> y añadirlas al índice principal.</p>
+</body>
+</html>
